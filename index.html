@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Validation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <form id="registrationForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <span id="usernameError" class="error"></span>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email">
+        <span id="emailError" class="error"></span>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <span id="passwordError" class="error"></span>
+        
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password">
+        <span id="confirmPasswordError" class="error"></span>
+        
+        <button type="submit" id="submitBtn">Register</button>
+    </form>
+    <div id="successMessage" style="color: green;"></div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
