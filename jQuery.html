@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="myButton">Click me</button>
+
+    <div>
+      <p id="myText">Hello, world!</p>
+      <p>Hello, world 1</p>
+      <p>Hello, world 2</p>
+      <p>Hello, world 3</p>
+      <p>Hello, <b>world</b> 4</p>
+    </div>
+
+    <div id="wiki">
+      <h2 id="heading">This is a heading</h2>
+      <p>
+        The Spy Who <b>Loved</b> Me is the ninth novel and tenth book in Ian
+        Fleming's James Bond series. First published on 16 April 1962, it is the
+        shortest and most sexually explicit of Fleming's novels, as well as the
+        only Bond novel told in the first person. Its narrator is a young
+        Canadian woman, Viv Michel. Bond does not appear until two-thirds of the
+        way through the book, arriving at precisely the right moment to save Viv
+        from being raped and murdered.
+      </p>
+    </div>
+    <div id="box2">
+      <h2>This is second Div</h2>
+    </div>
+    <br />
+    <button id="hide">Hide</button>
+    <button id="show">show</button>
+    <button id="toggle">Toggle</button>
+
+    <form action="">
+      <input type="text" id="inp" />
+      <textarea id="ta">This is your value my text area </textarea>
+    </form>
+    <br />
+    <button id="appendBtn">Append</button>
+    <button id="prependBtn">Prepend</button>
+    <br />
+    <br />
+    <button id="clonebtn">Clone</button>
+    <br /><br />
+    <button id="replace">Replace</button>
+    <button id="replaceAll">Replace All</button>
+    <br /><br />
+    <button id="warp">Warp</button>
+    <button id="unwarp">UnWarp</button>
+    <br /><br />
+    <ul>
+      <li>Orange</li>
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Grapes</li>
+    </ul>
+
+    <script>
+      console.log("We are using jQuery");
+
+      // Basic syntax
+      //$(function () {  == 👇
+      $(document).ready(function () {
+        // .ready =  document ready hone ke baad execuite hoga
+
+        /// click on all p tags
+        // $("p").click();
+        // $("p").click(function () {
+        //   console.log("You clicked on p", this); //this keyword lgane se o element bhi print ho jayega jisper hum click krenge
+
+        //hide function (jispe click kroge o hide hoga)
+        // $(this).hide();
+
+        //  //hide function
+        // $("p").hide();
+        // });
+
+        // There are three types of selectors
+        // 1. id selector  ($('#id'))
+        // 2. class selector  ($('.class'))
+        // 3. tag/Elements selector  ($('p/h1'))
+
+        // clicks on the all element
+        // $("*").click();
+
+        //-----------> Events in jQuery <------------
+        //-----------> Events in jQuery <------------
+        //-----------> Events in jQuery <------------
+
+        // 1. mouse = click, dblclick, mouseover, mouseout, mousemove, mouseleave
+        // 2. keyboard = keydown, keyup, keypress
+        // 3. form = submit, change, select, radio, checkbox
+        // 4. focus = focus, blur
+        // 5. load = load, unload, resize, scroll, error, abort
+
+        //---------> Demoing the on method <---------
+        //---------> Demoing the on method <---------
+        $("p").on({
+          click: function () {
+            console.log("Thanks for clicking", this);
+          },
+          mouseleave: function () {
+            console.log("Mouseleave");
+          },
+        });
+
+        // Remove Event
+        // $("").off("EventName,");
+
+        // hide content,  (1000)= time taking in hide content, iske baad function call hoga
+        // $("#wiki").hide(1000, function () {
+        //   console.log("hidden");
+        // });
+
+        // show content,  (1000)= time taking in show content, iske baad function call hoga
+        // $("#wiki").show(1000, function () {
+        //   console.log("Show content");
+        // });
+
+        //hide content by click button
+        $("#hide").click(function () {
+          $("#wiki").hide(1000, function () {
+            console.log("hidden");
+          });
+        });
+
+        //show content by click button
+        $("#show").click(function () {
+          $("#wiki").show(1000, function () {
+            console.log("Show content");
+          });
+        });
+
+        // Toggle button in dono button ka kaam akele krega
+        $("#toggle").click(function () {
+          $("#wiki").toggle();
+        });
+
+        //used function
+        // 1. fadeout()
+        // 2. fadein()
+        // 3. fadeToggle()
+        // 4. fadeTo()
+        // $("#wiki").fadeOut(1000); //text gayeb ho jayega
+        // $("#wiki").fadeIn(1000); //text wapas aa jayega
+        // $("#wiki").fadeTo(1000, 0.5); //text half gayeb ho jayega
+        // $("#wiki").fadeToggle(500); //ye fadeOut aur fadeTo dono  ka kaam kerta hai
+
+        //slide up upper jayega gayeb hote huye
+        // $("#wiki").slideUp(1000);
+
+        //slide down lower jayega gayeb hote huye
+        // $("#wiki").slideDown(1000);
+
+        //slide Toggle upper hai to niche jayega, niche hai to upper jayega
+        // $("#wiki").slideToggle(1000);
+
+        // Animate function in jQuery
+        // $("#wiki").stop    === animation ko stop kerne ke liye
+        // $("#wiki").animate(
+        //   {
+        //     opacity: 0.3,
+        //     height: 200,
+        //     width: 200,
+        //   },
+        //   2000
+        // );
+
+        // jQuery useing with HTML
+        // $("#ta").val("setting it to harry");
+        // $("#ta").html("it to harry");
+        // $("#ta").html("it to harry3");
+        // $("#inp").html("setting it to harry3");
+        // $("#inp").val("setting it to harry3");
+        // $("#inp").empty();
+        // $("#wiki").empty();
+        // $("#wiki").text("You are good.");
+        // $('#wiki').remove()
+
+        //--------------> Dom manuplation <-------------------------
+        //--------------> Dom manuplation <-------------------------
+        //append method ka use html ko last me kerne ke liye hota hai
+        $("#appendBtn").click(function () {
+          $("#wiki").append("<h2> Append : Sachin Chaudhary </h2>");
+        });
+        //appendTo
+        $("#appendBtn").click(function () {
+          $("<h3>AppendTO : Sachin Chaudhary</h3>").appendTo("#wiki");
+        });
+        //after bhi same kaam kerta hai
+        // prepend method ka use html ko start se add kerne ke liye hota hai
+        $("#prependBtn").click(function () {
+          $("#wiki").prepend("<h2> Prepend : Sachin Chaudhary </h2>");
+        });
+        //before bhi same kaam kerta hai
+        //PrependTo
+        $("#prependBtn").click(function () {
+          $("<h3>PrependTO : Sachin Chaudhary</h3>").prependTo("#wiki");
+        });
+
+        // Add or Remove  class & id
+        // $("#wiki").addClass("myClass"); // add class = myclass
+        // $("#wiki").addClass("myClass2"); // add class = myclass2
+        // $("#wiki").removeClass("myClass2"); //remove only myClass2
+        // $("#wiki").removeClass(); // remove all class
+
+        // jQuery useing with CSS
+        // $("#wiki").css("background-color", "red");
+        // $("#wiki").css("background-color");
+
+        // jQuery with AJAX
+        // Access ajax data
+        // $.get('https://code.jquery.com/jquery-3.7.1.js')
+
+        // show ajax data in alert
+        //$.get('https://code.jquery.com/jquery-3.7.1.js', function(data, status) {alert(data);})
+
+        // Check status
+        //$.get('https://code.jquery.com/jquery-3.7.1.js', function(data, status) {alert(status);})
+
+        //Send post request
+        // $.post('https://code.jquery.com/jquery-3.7.1.js', {name: 'sachin', channel: 'Fact Sachin yt'}, function(data, status) {alert(status)});
+
+        //Clone method
+        $("#clonebtn").click(function () {
+          $("#heading").clone().prependTo("#box2");
+        });
+
+        //Replace Methode
+        $("#replace").click(function () {
+          $("#heading").replaceWith("<h2>This is a first Div</h2>");
+        });
+        // replace all
+        $("#replaceAll").click(function () {
+          $("<p>यह नया पैराग्राफ है!</p>").replaceAll("#myText");
+        });
+
+        // Warp and Unwarp Method
+        $("#warp").click(function () {
+          $("p").wrap("<div class='wrapper'></div>");
+        });
+        //unwarp
+        $("#unwarp").click(function () {
+          $("p").unwrap();
+        });
+
+        //selector
+        //.first = select first element
+        // .last = select last element
+        // .eq() = select element by index
+        // .filter(id/class) = select element by class/id
+        // .not(id/class) = ye filter ka ulta hota hai
+        //slice (1, 3) = select element by index number
+        //.has (tag, id, class) = select element which have child
+        $("ul li").first().css("background", "yellow");
+        // $("ul li").last().css("background", "red");
+        $("ul li").eq(2).css("background", "green");
+        $("p").filter("#myText").css("background", "aqua");
+        $("div p").not("#myText").css("background", "blue");
+        $("ul li").slice(1, 3).css("background", "skyblue");
+        $("p").has("b").css("background", "pink");
+      });
+    </script>
+  </body>
+</html>
